@@ -12,6 +12,11 @@ function say({ subject, verb, object }) {
     console.log(`${subject} ${verb} ${object}`);
 }
 
+const multiline ="line1\n" +
+    "line2\n" +
+"line3";
+console.log(multiline);
+
 // es6 feature: for..of
 for(let s of sentences) {
     say(s);
