@@ -97,3 +97,11 @@ console.log(message1);
 
 // CONTROL FLOW
 
+// While Loop
+/**A while loop repeats code as long as its condition is met.*/
+
+        let funds = 50;
+        while (funds > 1 && funds < 100) {
+            return true
+        }
+
