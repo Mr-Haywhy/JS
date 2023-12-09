@@ -84,3 +84,16 @@ const n = m ? 1 : 0;
 /**All objects in JS have a method toString(), which returns a string representation.*/
 const j = 33.5;
 const s = j.toString();
+
+
+// String template
+let currentTemp = 19.5;
+const message = 'The current temprature is ' + currentTemp + '\u00b0C';
+console.log(message);
+
+let currentTemp1 = 19.5;
+const message1 = `The current temprature is ${currentTemp1}\u00b0C`;
+console.log(message1);
+
+// CONTROL FLOW
+
