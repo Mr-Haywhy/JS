@@ -121,3 +121,35 @@ while(funds > 1 && funds < 100) {
             }
 
            
+/**Control flow in JS can be broken into two subcategories:
+ * 1.   CONDITIONAL(BRANCHING) CONTROL FLOW: conditional control flow (if and if...else, and
+ *      switch.) this is more or less like there are two or more paths to take, and we take 
+ *      one, but we don't double back.
+ * 2.   LOOP CONTROL FLOW: loop control flow (while, do...while and for loops) repeats their
+ *      bodies until a condition is met.
+ */
+
+//  Control flow exceptions
+/**There are four statements that can alter the normal processing of flow control:
+ * 1.   break: Breaks out of loop early.
+ * 2.   continue: Skip to the next step in the loop.
+ * 3.   return: Exits the current function (regardsless of control flow).
+ * 4.   throw: Indicates an exception that must be caught by an exception handler (even if
+ *              it's outside of the current control flow statement).
+*/
+
+// CHAINING IF..ELSE STATEMENT
+/**Chaining if..else statements is not actually a special syntax: it's simply a series of 
+ * if...else statements where each else clause contains another if...else. it's a common enough 
+ * pattern that it deserves mention.
+*/
+
+        if (new Date().getDay() === 3) {
+            totalBet = 1;
+        } else if (funds === 7) {
+            totalBet = funds;
+        } else {
+            console.log("No superstition here!");
+        }
+
+
