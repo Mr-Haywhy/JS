@@ -200,3 +200,71 @@ for(let x=0.2; x<3.0; x += 0.2)
                 }
                 // play....
             }
+
+// Using break or return to avoid unnecessary computation
+/**If your loop exists solely to find something and then stop, there's no point in executing
+ * every step if you find what you're looking for early.
+ * 
+ * Example: If you're looking for the first prime in a list of thousands of numbers, a native
+ * approac might be:
+ */
+
+           let firstPrime = null;
+           for(let n of bigArrayOfNumbers) {
+                if(isPrime(n) && firstPrime === null) firstPrime = n;
+            }
+ 
+
+/* If bigArrayOfNumbers has a million numbers, and only the last one is prime, this approach
+ * would be fine. But if the first one were prime? You would have to check through all the
+ * array. We can use a break statement stop as soon as we've found what we're looking for:
+ * 
+ * If this loop is inside a function, we could use a return statement instead of break.
+ */
+
+            let firstPrime1 = null;
+            for(let n of bigArrayOfNumbers) {
+              if(isPrime(n)){
+                  firstPrime = n;
+                  break;
+                }
+            }
+
+
+
+// Using value of index after loop completion
+/**The important output of a loop is the value of the index variable when the loop terminates
+ * early with a break. We can take advantage of that fact that when a for loop finishes, the
+ * index varialbe retains its value.
+ */
+
+            let i = 0;
+            for(; i < bigArrayOfNumbers.length; i++) {
+                if(isPrime(bigArrayOfNumbers[i])) break;
+            }
+            if(i === bigArrayOfNumbers.length) console.log('No prime numbers!');
+            else console.log(`First prime number found at position ${i}`);
+
+
+// Using descending indexes when modifying lists
+/**Modifying a list while you're looping over the elements of the list can be tricky,
+ * because by modifying the list, you could be modifying the loop termination condition.
+ * One common way to deal with this is to use descending indexes to start at the end
+ * of the loop and work your way toward the beginning. In this way,
+ * if you add or remove elements from the list, it won't affect the termination conditions
+ * of the loop.
+ */            
+
+
+/* This will not work as expected, because the index is increasing, we're removing elements,
+ * there's a possibility that we might skip over primees (if they are adjacent).
+ */
+            for(let i=0; i<bigArrayOfNumbers.length; i++) {
+                if(isPrime(bigArrayOfNumbers[i])) bigArrayOfNumbers.splice(i, 1);
+            }
+
+// We can solve the problem using descending indexes.
+
+            for(let i=bigArrayOfNumbers.length-1; i >= 0; i--) {
+                if(isPrime(bigArrayOfNumbers[i])) bigArrayOfNumbers.splice(i, 1);
+            }
